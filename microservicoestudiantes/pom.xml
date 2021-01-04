@@ -8,10 +8,10 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cpcd.microservices.app.estudiante</groupId>
-	<artifactId>microservicoestudiante</artifactId>
+	<groupId>com.cpcd.microservices.app.estudiantes</groupId>
+	<artifactId>microservicoestudiantes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservicoestudiante</name>
+	<name>microservicoestudiantes</name>
 	<description>Microservicio para estudiente</description>
 
 	<properties>
