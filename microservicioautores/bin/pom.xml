@@ -8,11 +8,11 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cpcd.microservices.app.estudiantes</groupId>
-	<artifactId>microservicoestudiantes</artifactId>
+	<groupId>com.cpde.microservices.app.autores</groupId>
+	<artifactId>microservicioautores</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>microservicoestudiantes</name>
-	<description>Microservicio para estudiente</description>
+	<name>microservicioautores</name>
+	<description>Microservicio para autores</description>
 
 	<properties>
 		<java.version>11</java.version>
