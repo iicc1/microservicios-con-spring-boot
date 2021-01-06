@@ -82,7 +82,7 @@ public class Unidad {
 	private String thumbnail;
 	
 	@Temporal (TemporalType.TIMESTAMP)
-	@Column (name = "fecha_creacion")
+	@Column (name = "fechaCreacion")
 	private Date fechaCreacion;
 	
 	@PrePersist
