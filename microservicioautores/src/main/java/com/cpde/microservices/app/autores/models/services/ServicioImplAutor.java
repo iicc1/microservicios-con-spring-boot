@@ -14,10 +14,8 @@ public class ServicioImplAutor implements ServicioAutor {
 
 	@Autowired
 	private RepositorioAutor repositorioautor;
-	@Override
 	@Transactional (readOnly = true)
 	public Iterable<Autor> findAll() {
-		// TODO Auto-generated method stub
 		return repositorioautor.findAll();
 	}
 
