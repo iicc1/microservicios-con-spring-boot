@@ -11,6 +11,13 @@ import javax.persistence.Table;
 @Table (name = "autor")
 public class Autor{
 	//id, DNI, nombre, valoracion, thumbnail
+	/*public Autor(Long id, String nombre, Long valoracion, String thumbnail ) {
+		// TODO Auto-generated constructor stub
+		this.id = id; 
+		this.valoracion = valoracion;
+		this.nombre = nombre; 
+		this.thumbnail = thumbnail;
+	}*/
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -18,6 +25,10 @@ public class Autor{
 	private Long id;
 	@Column(name = "nombre",nullable=false)
 	private String nombre;
+	@Column(name = "valoracion")
+	private Long valoracion;
+	@Column(name = "foto")
+	private String thumbnail;
 	
 	public Long getId() {
 		return id;
@@ -35,17 +46,26 @@ public class Autor{
 		return valoracion;
 	}
 	public void setValoracion(Long valoracion) {
-		this.valoracion = valoracion;
+		if ( valoracion > 5) {
+			this.valoracion = (long) 5;
+	
+		}
+		else if (valoracion < 0) 
+		{
+			this.valoracion = (long) 0;
+
+		}
+		else {
+			this.valoracion = valoracion;
+		}
 	}
+	
 	public String getThumbnail() {
 		return thumbnail;
 	}
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
 	}
-	@Column(name = "valoracion")
-	private Long valoracion;
-	@Column(name = "foto")
-	private String thumbnail;
+
 
 }
