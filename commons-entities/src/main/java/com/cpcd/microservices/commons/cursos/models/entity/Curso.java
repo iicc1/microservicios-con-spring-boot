@@ -1,4 +1,4 @@
-package com.cpcd.microservices.app.cursos.models.entity;
+package com.cpcd.microservices.commons.cursos.models.entity;
 
 import java.util.Date;
 
@@ -11,6 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 
 @Entity
 @Table (name = "cursos")
@@ -79,6 +80,12 @@ public class Curso {
 	@PrePersist
 	public void ponerFecha() {
 		this.fechaCreacion = new Date();
+	}
+
+	
+	private Autor autor;
+	public void setAutor(Autor autor) {
+		this.autor = autor;
 	}
 	
 }
