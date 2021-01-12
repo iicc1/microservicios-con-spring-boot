@@ -27,6 +27,11 @@ public class ControladorCurso {
 		return ResponseEntity.ok().body(serviciocurso.findAll());
 	}
 	
+	@GetMapping("/mejorvalorados")
+	public ResponseEntity<?> devolverCursosMejorValorados(){
+		return ResponseEntity.ok().body(serviciocurso.mejorValorados());
+	}
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<?> devolverCurso(@PathVariable Long id){
 		Optional<Curso> cu = serviciocurso.findById(id);

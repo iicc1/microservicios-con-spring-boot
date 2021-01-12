@@ -20,7 +20,13 @@ public class ServicioImplCurso implements ServicioCurso {
 	public Iterable<Curso> findAll() {
 		return repositoriocurso.findAll();
 	}
-
+	
+	@Override
+	@Transactional (readOnly = true)
+	public Iterable<Curso> mejorValorados() {
+		return repositoriocurso.mejorValorados();
+	}
+	
 	@Override
 	@Transactional (readOnly = true)
 	public Optional<Curso> findById(Long id) {
