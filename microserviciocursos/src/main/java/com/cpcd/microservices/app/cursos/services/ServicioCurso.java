@@ -16,4 +16,6 @@ public interface ServicioCurso {
 	
 	public Iterable<Curso> mejorValorados();
 	
+	public Iterable<Curso> ultimos();
+	
 }

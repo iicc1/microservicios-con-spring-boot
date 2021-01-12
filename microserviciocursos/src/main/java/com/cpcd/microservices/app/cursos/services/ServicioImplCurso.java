@@ -29,6 +29,12 @@ public class ServicioImplCurso implements ServicioCurso {
 	
 	@Override
 	@Transactional (readOnly = true)
+	public Iterable<Curso> ultimos() {
+		return repositoriocurso.ultimos();
+	}
+	
+	@Override
+	@Transactional (readOnly = true)
 	public Optional<Curso> findById(Long id) {
 		return repositoriocurso.findById(id);
 	}
