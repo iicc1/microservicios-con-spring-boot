@@ -14,6 +14,7 @@ public class ServicioImplAutor implements ServicioAutor {
 
 	@Autowired
 	private RepositorioAutor repositorioautor;
+	
 	@Transactional (readOnly = true)
 	public Iterable<Autor> findAll() {
 		return repositorioautor.findAll();
@@ -35,12 +36,18 @@ public class ServicioImplAutor implements ServicioAutor {
 
 	@Override
 	@Transactional
-
 	public void deletedById(Long id) {
 		// TODO Auto-generated method stub
 		repositorioautor.deleteById(id);
-
 	}
+
+
+
+	/*@Override
+	public Iterable<Autor> findBest() {
+		// TODO Auto-generated method stub
+		return repositorioautor.findBest();
+	}*/
 
 	
 }

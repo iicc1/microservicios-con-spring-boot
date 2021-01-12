@@ -9,8 +9,10 @@ public interface ServicioAutor {
 		public Iterable <Autor> findAll();
 		public Optional	<Autor> findById(Long id);
 		
+		//public Iterable<Autor> findBest();
 		//insertar y borrar
 		public Autor save (Autor autor);
-		
 		public void deletedById(Long id);
+		
+		 
 }

@@ -18,7 +18,7 @@ import com.cpde.microservices.app.autores.models.services.ServicioAutor;
 
 @RestController 
 
-public class ControladorCurso {
+public class ControladorAutor {
 
 	
 	@Autowired
@@ -32,7 +32,6 @@ public class ControladorCurso {
 	@GetMapping("/{id}")
 	public ResponseEntity<?> devolverAutor(@PathVariable Long id){
 		Optional<Autor> aut = servicioautor.findById(id);
-		
 		if (aut.isEmpty()) {
 			return ResponseEntity.notFound().build();
 		}else {	
@@ -54,21 +53,30 @@ public class ControladorCurso {
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> editarAutor(@RequestBody Autor autor, @PathVariable Long id){
+		
 		Optional<Autor> aut = servicioautor.findById(id);
-		if (aut.isEmpty()) {
+	
+		if (aut.isEmpty()) {	
 			return ResponseEntity.notFound().build();
+
 		}
-		
-		Autor objautor =  aut.get();
-		objautor.setNombre(autor.getNombre());
-		objautor.setThumbnail(autor.getThumbnail());
-		objautor.setValoracion(autor.getValoracion());
-		
-		
-		Autor autorsaved = servicioautor.save(objautor);
-		
-		return ResponseEntity.status(HttpStatus.CREATED).body(autorsaved);
-		
-		
+	
+			Autor objautor =  aut.get();
+	
+			objautor.setNombre(autor.getNombre());
+			objautor.setThumbnail(autor.getThumbnail());
+			objautor.setValoracion(autor.getValoracion());
+			
+			Autor autor2 = servicioautor.save(objautor);
+			
+			return ResponseEntity.status(HttpStatus.CREATED).body(autor2);
+			
+			
 	}
+	
+	/*@GetMapping("/valorados")
+	public ResponseEntity<?> devolvermejoresAutores(){
+		
+		return ResponseEntity.ok().body(servicioautor.findBest());
+	}	*/
 }
