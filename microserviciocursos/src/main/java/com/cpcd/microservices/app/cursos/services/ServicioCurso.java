@@ -13,4 +13,9 @@ public interface ServicioCurso {
 	public Curso save(Curso curso);
 	
 	public void deleteById(Long id);
+	
+	public Iterable<Curso> mejorValorados();
+	
+	public Iterable<Curso> ultimos();
+	
 }
