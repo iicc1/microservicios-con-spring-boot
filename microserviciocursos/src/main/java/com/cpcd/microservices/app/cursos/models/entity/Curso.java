@@ -68,7 +68,6 @@ public class Curso {
 	}
 	private Long id;
 	private String titulo;
-	private int valoracion;
 	private String descripcion;
 	private String url;
 	private String thumbnail;
@@ -80,22 +79,6 @@ public class Curso {
 	@PrePersist
 	public void ponerFecha() {
 		this.fechaCreacion = new Date();
-	}
-
-	public int getValoracion() {
-		return valoracion;
-	}
-
-	public void setValoracion(int valoracion) {
-		if ( valoracion > 5) {
-			this.valoracion = (int) 5;
-	
-		}else if (valoracion < 0) {
-			this.valoracion = (int) 0;
-
-		}else {
-			this.valoracion = valoracion;
-		}
 	}
 	
 }
