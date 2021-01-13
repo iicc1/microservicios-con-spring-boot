@@ -2,7 +2,8 @@ package com.cpcd.microservices.app.unidades.services;
 
 import java.util.Optional;
 
-import com.cpcd.microservices.app.unidades.models.entity.Unidad;
+// import com.cpcd.microservices.app.unidades.models.entity.Unidad;
+import com.cpcd.microservices.commons.cursos.models.entity.Unidad;
 
 public interface ServicioUnidad {
 	
