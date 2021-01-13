@@ -8,7 +8,7 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cpcd.microservices.app.cursos.models.entity</groupId>
+	<groupId>com.cpcd.microservices.app.cursos</groupId>
 	<artifactId>microserviciocursos</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>microserviciocursos</name>
@@ -21,9 +21,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.cpcd.microservices.commons.cursos.models.entity</groupId>
-	<artifactId>commons-entities</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.cpcd.microservices.commons.cursos</groupId>
+			<artifactId>commons-entities</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -18,7 +18,7 @@ import com.cpde.microservices.app.autores.models.services.ServicioAutor;
 
 @RestController 
 
-public class ControladorCurso {
+public class ControladorAutor {
 
 	
 	@Autowired

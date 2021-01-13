@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cpcd.microservices.commons.cursos</groupId>
-	<artifactId>commons-cursos</artifactId>
+	<artifactId>commons-entities</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>commons-cursos</name>
+	<name>commons-entities</name>
 	<description>Librería para relacionar las entidades</description>
 
 	<properties>

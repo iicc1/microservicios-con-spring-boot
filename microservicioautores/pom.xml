@@ -22,7 +22,7 @@
 	<dependencies>
 	
 		<dependency>
-			<groupId>com.cpcd.microservices.commons.cursos</groupId>
+			<groupId>com.cpcd.microservices.commons.cursos.models.entity</groupId>
 			<artifactId>commons-entities</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

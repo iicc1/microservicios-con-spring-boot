@@ -21,8 +21,15 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "cursos")
 
 public class Curso {
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String titulo;
+	private int valoracion;
+	private String descripcion;
+	private String url;
+	private String thumbnail;
 	
 	public Long getId() {
 		return id;
@@ -71,12 +78,7 @@ public class Curso {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	private Long id;
-	private String titulo;
-	private int valoracion;
-	private String descripcion;
-	private String url;
-	private String thumbnail;
+
 	
 	@JsonIgnoreProperties(value= {"cursos"})
 	@ManyToOne

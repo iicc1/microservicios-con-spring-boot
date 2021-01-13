@@ -8,7 +8,7 @@
 		<version>2.4.1</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.cpcd.microservices.commons.cursos</groupId>
+	<groupId>com.cpcd.microservices.commons.cursos.models.entity</groupId>
 	<artifactId>commons-entities</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>commons-entities</name>
