@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cpcd.microservices.app.cursos.models.entity.Curso;
 import com.cpcd.microservices.app.cursos.models.repository.RepositorioCurso;
+import com.cpcd.microservices.commons.cursos.models.entity.Curso;
 
 @Service
 public class ServicioImplCurso implements ServicioCurso {

@@ -2,7 +2,9 @@ package com.cpde.microservices.app.autores.models.services;
 
 import java.util.Optional;
 
-import com.cpde.microservices.app.autores.models.entity.Autor;
+import com.cpcd.microservices.commons.cursos.models.entity.Autor;
+
+
 
 public interface ServicioAutor {
 

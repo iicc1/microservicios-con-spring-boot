@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.cpcd.microservices.commons.cursos.models.entity.Curso;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Entity
 @Table (name = "autores")
@@ -39,7 +38,6 @@ public class Autor{
 	private String thumbnail;
 	
 	
-	
 	//metodos implementados para la relacion
 	
 	public List<Curso> getCursos(){
@@ -63,9 +61,7 @@ public class Autor{
 		 curso.setAutor(null);
 	}
 	
-	
-	
-	@JsonIgnoreProperties (value = {"autor"}, allowSetters = true)
+	@JsonIgnoreProperties(value = {"autor"}, allowSetters = true)
 	@OneToMany(mappedBy="autor", fetch =FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Curso> cursos;
 	//getters y setters 
