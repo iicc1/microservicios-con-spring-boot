@@ -1,12 +1,16 @@
-package com.cpcd.microservices.app.unidades.models.entity;
+package com.cpcd.microservices.commons.cursos.models.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -18,6 +22,23 @@ import javax.persistence.TemporalType;
 public class Unidad {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String titulo;
+	private String descripcion;
+	private String url;
+	private Long valoracion;
+	private String thumbnail;
+	
+	@Temporal (TemporalType.TIMESTAMP)
+	@Column (name = "fechaCreacion")
+	private Date fechaCreacion;
+	
+	//relacion contiene
+	
+	@ManyToMany(mappedBy = "unidades", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Curso> cursos;
+		
+	
 	
 	public Long getId() {
 		return id;
@@ -74,20 +95,11 @@ public class Unidad {
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
-	private Long id;
-	private String titulo;
-	private String descripcion;
-	private String url;
-	private Long valoracion;
-	private String thumbnail;
-	
-	@Temporal (TemporalType.TIMESTAMP)
-	@Column (name = "fechaCreacion")
-	private Date fechaCreacion;
 	
 	@PrePersist
 	public void ponerFecha() {
 		this.fechaCreacion = new Date();
 	}
+	
 	
 }

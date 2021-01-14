@@ -1,6 +1,7 @@
 package com.cpcd.microservices.commons.cursos.models.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -92,6 +95,16 @@ public class Curso {
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
+	
+	//relacion para tabla contiene 
+	@ManyToMany
+	@JoinTable(name="contiene",
+			joinColumns=@JoinColumn(name="cursoid"),
+			inverseJoinColumns=@JoinColumn(name="unidadid")
+			)
+	private List<Unidad> unidades;
+	
+
 	
 	@Temporal (TemporalType.TIMESTAMP)
 	@Column (name = "fecha_creacion")
