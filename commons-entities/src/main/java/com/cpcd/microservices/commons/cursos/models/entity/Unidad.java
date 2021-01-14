@@ -100,6 +100,12 @@ public class Unidad {
 	@JoinColumn(name="autorid")
 	private Autor autor;
 	
+	
+	@ManyToMany(mappedBy = "unidades", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Curso> cursos;
+		
+	
+	
 	public Autor getAutor() {
 		return autor;
 	}
