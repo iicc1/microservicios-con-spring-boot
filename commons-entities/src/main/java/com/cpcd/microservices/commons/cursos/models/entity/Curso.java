@@ -85,6 +85,13 @@ public class Curso {
 	@JoinColumn(name="autorid")
 	private Autor autor;
 	
+	@ManyToMany
+	@JoinTable(name="contiene",
+			joinColumns=@JoinColumn(name="cursoid"),
+			inverseJoinColumns=@JoinColumn(name="unidadid")
+			)
+	private List<Unidad> unidades;
+	
 	public Autor getAutor() {
 		return autor;
 	}
