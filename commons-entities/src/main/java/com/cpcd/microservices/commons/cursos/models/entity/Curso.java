@@ -18,6 +18,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 @Entity
@@ -87,6 +90,13 @@ public class Curso {
 	@ManyToOne
 	@JoinColumn(name="autorid")
 	private Autor autor;
+	
+	@ManyToMany
+	@JoinTable(name="contiene",
+			joinColumns=@JoinColumn(name="cursoid"),
+			inverseJoinColumns=@JoinColumn(name="unidadid")
+			)
+	private List<Unidad> unidades;
 	
 	public Autor getAutor() {
 		return autor;

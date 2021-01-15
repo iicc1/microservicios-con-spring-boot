@@ -1,7 +1,10 @@
 package com.cpcd.microservices.commons.cursos.models.entity;
 
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,12 +13,26 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.ManyToMany;
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+<<<<<<< HEAD
+=======
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.ArrayList;
+import java.util.List;
+
+
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 @Entity
 @Table (name = "unidades")
 
@@ -29,6 +46,7 @@ public class Unidad {
 	private Long valoracion;
 	private String thumbnail;
 	
+<<<<<<< HEAD
 	@Temporal (TemporalType.TIMESTAMP)
 	@Column (name = "fechaCreacion")
 	private Date fechaCreacion;
@@ -40,6 +58,8 @@ public class Unidad {
 		
 	
 	
+=======
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 	public Long getId() {
 		return id;
 	}
@@ -96,10 +116,52 @@ public class Unidad {
 		this.fechaCreacion = fechaCreacion;
 	}
 	
+<<<<<<< HEAD
+=======
+	@Temporal (TemporalType.TIMESTAMP)
+	@Column (name = "fechaCreacion")
+	private Date fechaCreacion;
+	
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 	@PrePersist
 	public void ponerFecha() {
 		this.fechaCreacion = new Date();
 	}
 	
+<<<<<<< HEAD
 	
+=======
+	@JsonIgnoreProperties(value= {"unidades"})
+	@ManyToOne
+	@JoinColumn(name="autorid")
+	private Autor autor;
+	
+	
+	@ManyToMany(mappedBy = "unidades", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Curso> cursos;
+		
+	
+	
+	public Autor getAutor() {
+		return autor;
+	}
+	
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if (this == obj) {
+			return true;
+		}
+		
+		if (!(obj instanceof Curso)) {return false;}
+		
+		Curso cu = (Curso) obj;
+		return this.id!=null && this.id.equals(cu.getId());
+		
+	}
+>>>>>>> d67b379fd135b0a244ae4457f620d95f84dcab04
 }

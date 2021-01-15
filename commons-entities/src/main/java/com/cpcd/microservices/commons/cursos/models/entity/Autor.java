@@ -21,7 +21,7 @@ public class Autor{
 	
 	public Autor() {
 		this.cursos = new ArrayList<>();
-		
+		this.unidades = new ArrayList<>();
 	}
 	
 	
@@ -61,9 +61,34 @@ public class Autor{
 		 curso.setAutor(null);
 	}
 	
+	public List<Unidad> getUnidades(){
+		return unidades;
+	}
+	
+	public void setUnidades(List<Unidad> unidades) {
+		this.getUnidades().clear();
+		unidades.forEach(uni -> {
+			this.addUnidad(uni);
+		});	
+	}
+	
+	private void addUnidad(Unidad unidad) {
+		 this.unidades.add(unidad);
+		 unidad.setAutor(this);
+	}
+	
+	private void eliminarUnidad(Unidad unidad) {
+		 this.unidades.remove(unidad);
+		 unidad.setAutor(null);
+	}
+	
 	@JsonIgnoreProperties(value = {"autor"}, allowSetters = true)
 	@OneToMany(mappedBy="autor", fetch =FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Curso> cursos;
+	
+	@JsonIgnoreProperties(value = {"autor"}, allowSetters = true)
+	@OneToMany(mappedBy="autor", fetch =FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Unidad> unidades;
 	//getters y setters 
 	
 	public Long getId() {
