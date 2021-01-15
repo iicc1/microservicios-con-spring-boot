@@ -106,15 +106,6 @@ public class Curso {
 		this.autor = autor;
 	}
 	
-	//relacion para tabla contiene 
-	@ManyToMany
-	@JoinTable(name="contiene",
-			joinColumns=@JoinColumn(name="cursoid"),
-			inverseJoinColumns=@JoinColumn(name="unidadid")
-			)
-	private List<Unidad> unidades;
-	
-
 	
 	@Temporal (TemporalType.TIMESTAMP)
 	@Column (name = "fecha_creacion")
