@@ -41,21 +41,12 @@ public class ServicioImplAutor implements ServicioAutor {
 		repositorioautor.deleteById(id);
 	}
 
-<<<<<<< Updated upstream
-
-
-	/*@Override
-	public Iterable<Autor> findBest() {
-		// TODO Auto-generated method stub
-		return repositorioautor.findBest();
-	}*/
-=======
 	@Override
 	public Iterable<Autor> findBest() {
 		// TODO Auto-generated method stub
 		return repositorioautor.findBest();
 	}
->>>>>>> Stashed changes
+
 
 	
 }

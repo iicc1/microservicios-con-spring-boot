@@ -26,13 +26,11 @@ import com.cpde.microservices.app.autores.models.repository.RepositorioAutor;
 
 class MicroservicioautoresApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
 	@Autowired
 	private TestEntityManager entityManager;
 	@Autowired
 	private RepositorioAutor repositorio;
+	
 	@Test
 	public void testgetID() {
 	
