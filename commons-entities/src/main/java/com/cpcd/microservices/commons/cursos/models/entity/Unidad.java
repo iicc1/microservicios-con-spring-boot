@@ -110,12 +110,6 @@ public class Unidad {
 	@JoinColumn(name="autorid")
 	private Autor autor;
 	
-	
-	@ManyToMany(mappedBy = "unidades", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
-	private List<Curso> cursos;
-		
-	
-	
 	public Autor getAutor() {
 		return autor;
 	}
@@ -124,6 +118,19 @@ public class Unidad {
 		this.autor = autor;
 	}
 	
+	@JsonIgnoreProperties(value = {"unidades"}, allowSetters = true)
+	@ManyToMany(mappedBy = "unidades", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<Curso> cursos;
+		
+//	public List<Curso> getCursos() {
+//		return cursos;
+//	}
+
+	public void setCurso(Curso curso) {
+		this.cursos.add(curso);
+	}
+
+	
 	@Override
 	public boolean equals(Object obj) {
 		
@@ -131,10 +138,10 @@ public class Unidad {
 			return true;
 		}
 		
-		if (!(obj instanceof Curso)) {return false;}
+		if (!(obj instanceof Unidad)) {return false;}
 		
-		Curso cu = (Curso) obj;
-		return this.id!=null && this.id.equals(cu.getId());
+		Unidad uni = (Unidad) obj;
+		return this.id!=null && this.id.equals(uni.getId());
 		
 	}
 }

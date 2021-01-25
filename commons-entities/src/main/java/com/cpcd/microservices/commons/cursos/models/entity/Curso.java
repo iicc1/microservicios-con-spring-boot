@@ -91,6 +91,15 @@ public class Curso {
 	@JoinColumn(name="autorid")
 	private Autor autor;
 	
+	public Autor getAutor() {
+		return autor;
+	}
+	
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
+	
+	@JsonIgnoreProperties(value = {"cursos"}, allowSetters = true)
 	@ManyToMany
 	@JoinTable(name="contiene",
 			joinColumns=@JoinColumn(name="cursoid"),
@@ -98,12 +107,25 @@ public class Curso {
 			)
 	private List<Unidad> unidades;
 	
-	public Autor getAutor() {
-		return autor;
+//	public List<Unidad> getUnidades(){
+//		return unidades;
+//	}
+	
+	public void setUnidades(List<Unidad> unidades) {
+		this.unidades.clear();
+		unidades.forEach(uni -> {
+			this.addUnidad(uni);
+		});	
 	}
 	
-	public void setAutor(Autor autor) {
-		this.autor = autor;
+	private void addUnidad(Unidad unidad) {
+		 this.unidades.add(unidad);
+		 unidad.setCurso(this);
+	}
+	
+	private void eliminarUnidad(Unidad unidad) {
+		 this.unidades.remove(unidad);
+		 unidad.setCurso(null);
 	}
 	
 	
