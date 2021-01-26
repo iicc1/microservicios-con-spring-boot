@@ -98,6 +98,13 @@ public class Curso {
 			)
 	private List<Unidad> unidades;
 	
+	@ManyToMany
+	@JoinTable(name="matriculados",
+			joinColumns=@JoinColumn(name="curso_id"),
+			inverseJoinColumns=@JoinColumn(name="estudiante_id")
+			)
+	private List<Estudiantes> estudiantes;
+	
 	public Autor getAutor() {
 		return autor;
 	}
