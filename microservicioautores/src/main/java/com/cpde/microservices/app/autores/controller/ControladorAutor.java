@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cpde.microservices.app.autores.models.entity.Autor;
+import com.cpcd.microservices.commons.cursos.models.entity.Autor;
 import com.cpde.microservices.app.autores.models.services.ServicioAutor;
 
 @RestController 

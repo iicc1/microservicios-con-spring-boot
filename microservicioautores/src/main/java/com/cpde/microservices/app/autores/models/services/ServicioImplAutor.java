@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.cpde.microservices.app.autores.models.entity.Autor;
+import com.cpcd.microservices.commons.cursos.models.entity.Autor;
 import com.cpde.microservices.app.autores.models.repository.RepositorioAutor;
 
 @Service
