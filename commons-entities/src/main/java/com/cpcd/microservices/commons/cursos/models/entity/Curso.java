@@ -17,6 +17,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
@@ -28,6 +29,11 @@ import java.util.List;
 @Table (name = "cursos")
 
 public class Curso {
+	
+	public Curso() {
+		this.estudiantes = new ArrayList<>();
+	}
+
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -109,6 +115,7 @@ public class Curso {
 			)
 	private List<Unidad> unidades;
 	
+
 //	public List<Unidad> getUnidades(){
 //		return unidades;
 //	}
@@ -119,6 +126,36 @@ public class Curso {
 			this.addUnidad(uni);
 		});	
 	}
+	@ManyToMany
+	@JoinTable(name="matriculados",
+			joinColumns=@JoinColumn(name="curso_id"),
+			inverseJoinColumns=@JoinColumn(name="estudiante_id"),
+			uniqueConstraints = {@UniqueConstraint(columnNames = {"curso_id","estudiante_id"})}
+	)
+	private List<Estudiantes> estudiantes;
+	
+	public List<Estudiantes> getEstudiantes() {
+		return estudiantes;
+	}
+	
+	
+	public void setEstudiantes(List<Estudiantes> estudiantes) {
+		this.estudiantes.clear();
+		estudiantes.forEach(es -> {
+			this.addEstudiante(es);
+		});
+	}
+
+	public void addEstudiante(Estudiantes estudiante) {
+		this.estudiantes.add(estudiante);
+		estudiante.addCurso(this);
+	}
+	
+	public void eliminarEstudiante(Estudiantes estudiante) {
+		this.estudiantes.remove(estudiante);
+		estudiante.elimnarCurso(this);
+	}
+	
 	
 	private void addUnidad(Unidad unidad) {
 		 this.unidades.add(unidad);
