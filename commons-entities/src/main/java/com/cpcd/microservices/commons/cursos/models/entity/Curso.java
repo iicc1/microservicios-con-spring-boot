@@ -16,6 +16,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.ArrayList;
@@ -101,7 +102,8 @@ public class Curso {
 	@ManyToMany
 	@JoinTable(name="matriculados",
 			joinColumns=@JoinColumn(name="curso_id"),
-			inverseJoinColumns=@JoinColumn(name="estudiante_id")
+			inverseJoinColumns=@JoinColumn(name="estudiante_id"),
+			uniqueConstraints = {@UniqueConstraint(columnNames = {"curso_id","estudiante_id"})}
 			)
 	private List<Estudiantes> estudiantes;
 	
