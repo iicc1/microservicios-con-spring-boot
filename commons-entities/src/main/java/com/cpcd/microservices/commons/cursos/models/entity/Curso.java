@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
@@ -103,7 +104,8 @@ public class Curso {
 	@ManyToMany
 	@JoinTable(name="contiene",
 			joinColumns=@JoinColumn(name="cursoid"),
-			inverseJoinColumns=@JoinColumn(name="unidadid")
+			inverseJoinColumns=@JoinColumn(name="unidadid"),
+			uniqueConstraints= {@UniqueConstraint(columnNames = {"cursoid", "unidadid"})}
 			)
 	private List<Unidad> unidades;
 	
