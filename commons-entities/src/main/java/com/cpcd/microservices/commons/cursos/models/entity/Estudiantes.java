@@ -19,9 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table (name = "estudiantes")
 public class Estudiantes {
 	
-//	public Estudiantes() {
-//		this.cursos = new ArrayList<>();
-//	}
+	public Estudiantes() {
+		this.cursos = new ArrayList<>();
+	}
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -55,29 +55,26 @@ public class Estudiantes {
 		DNI = dNI;
 	}
 
-//	public List<Curso> getCursos() {
-//		return cursos;
-//	}
-//
-////	public void setCursos(List<Curso> cursos) {
-////		this.cursos = cursos;
-////	}
-//	public void setCursos(List<Curso> cursos) {
-//		this.cursos.clear();
-//		cursos.forEach(cu -> {
-//			this.addCurso(cu);
-//		});
-//	}
-//	
-//	public void addCurso(Curso curso) {
-//		this.cursos.add(curso);
-//		curso.addEstudiante(this);
-//	}
-//	
-//	public void elimnarCurso(Curso curso) {
-//		this.cursos.remove(curso);
-//		curso.eliminarEstudiante(this);
-//	}
+	public List<Curso> getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(List<Curso> cursos) {
+		this.cursos.clear();
+		cursos.forEach(cu -> {
+			this.addCurso(cu);
+		});
+	}
+	
+	public void addCurso(Curso curso) {
+		this.cursos.add(curso);
+		curso.addEstudiante(this);
+	}
+	
+	public void elimnarCurso(Curso curso) {
+		this.cursos.remove(curso);
+		curso.eliminarEstudiante(this);
+	}
 	
 	@ManyToMany(mappedBy = "estudiantes", fetch =FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Curso> cursos;

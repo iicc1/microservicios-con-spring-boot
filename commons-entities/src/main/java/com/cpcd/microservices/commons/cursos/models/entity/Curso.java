@@ -29,6 +29,11 @@ import java.util.List;
 
 public class Curso {
 	
+	public Curso() {
+		this.estudiantes = new ArrayList<>();
+	}
+
+	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -106,6 +111,29 @@ public class Curso {
 			uniqueConstraints = {@UniqueConstraint(columnNames = {"curso_id","estudiante_id"})}
 			)
 	private List<Estudiantes> estudiantes;
+	
+	public List<Estudiantes> getEstudiantes() {
+		return estudiantes;
+	}
+	
+	
+	public void setEstudiantes(List<Estudiantes> estudiantes) {
+		this.estudiantes.clear();
+		estudiantes.forEach(es -> {
+			this.addEstudiante(es);
+		});
+	}
+
+	public void addEstudiante(Estudiantes estudiante) {
+		this.estudiantes.add(estudiante);
+		estudiante.addCurso(this);
+	}
+	
+	public void eliminarEstudiante(Estudiantes estudiante) {
+		this.estudiantes.remove(estudiante);
+		estudiante.elimnarCurso(this);
+	}
+	
 	
 	public Autor getAutor() {
 		return autor;
