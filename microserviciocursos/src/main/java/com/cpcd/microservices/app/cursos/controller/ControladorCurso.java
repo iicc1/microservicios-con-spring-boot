@@ -72,6 +72,7 @@ public class ControladorCurso {
 		ocurso.setDescripcion(curso.getDescripcion());
 		ocurso.setThumbnail(curso.getThumbnail());
 		ocurso.setUrl(curso.getUrl());
+		ocurso.setValoracion(curso.getValoracion());
 		
 		Curso ocurso2 = serviciocurso.save(ocurso);
 		return ResponseEntity.status(HttpStatus.CREATED).body(ocurso2);
