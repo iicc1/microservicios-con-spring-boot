@@ -137,6 +137,7 @@ public class Curso {
 		 unidad.setCurso(null);
 	}
 	
+	@JsonIgnoreProperties(value = {"cursos"}, allowSetters = true)
 	@ManyToMany
 	@JoinTable(name="matriculados",
 			joinColumns=@JoinColumn(name="curso_id"),
