@@ -106,6 +106,7 @@ public class Curso {
 		this.autor = autor;
 	}
 	
+	
 	@JsonIgnoreProperties(value = {"cursos"}, allowSetters = true)
 	@ManyToMany
 	@JoinTable(name="contiene",
@@ -115,7 +116,6 @@ public class Curso {
 			)
 	private List<Unidad> unidades;
 	
-
 //	public List<Unidad> getUnidades(){
 //		return unidades;
 //	}
@@ -126,36 +126,6 @@ public class Curso {
 			this.addUnidad(uni);
 		});	
 	}
-	@ManyToMany
-	@JoinTable(name="matriculados",
-			joinColumns=@JoinColumn(name="curso_id"),
-			inverseJoinColumns=@JoinColumn(name="estudiante_id"),
-			uniqueConstraints = {@UniqueConstraint(columnNames = {"curso_id","estudiante_id"})}
-	)
-	private List<Estudiantes> estudiantes;
-	
-	public List<Estudiantes> getEstudiantes() {
-		return estudiantes;
-	}
-	
-	
-	public void setEstudiantes(List<Estudiantes> estudiantes) {
-		this.estudiantes.clear();
-		estudiantes.forEach(es -> {
-			this.addEstudiante(es);
-		});
-	}
-
-	public void addEstudiante(Estudiantes estudiante) {
-		this.estudiantes.add(estudiante);
-		estudiante.addCurso(this);
-	}
-	
-	public void eliminarEstudiante(Estudiantes estudiante) {
-		this.estudiantes.remove(estudiante);
-		estudiante.elimnarCurso(this);
-	}
-	
 	
 	private void addUnidad(Unidad unidad) {
 		 this.unidades.add(unidad);
@@ -165,6 +135,35 @@ public class Curso {
 	private void eliminarUnidad(Unidad unidad) {
 		 this.unidades.remove(unidad);
 		 unidad.setCurso(null);
+	}
+	
+	@ManyToMany
+	@JoinTable(name="matriculados",
+			joinColumns=@JoinColumn(name="curso_id"),
+			inverseJoinColumns=@JoinColumn(name="estudiante_id"),
+			uniqueConstraints = {@UniqueConstraint(columnNames = {"curso_id","estudiante_id"})}
+	)
+	private List<Estudiante> estudiantes;
+	
+	public List<Estudiante> getEstudiantes() {
+		return estudiantes;
+	}
+	
+	public void setEstudiantes(List<Estudiante> estudiantes) {
+		this.estudiantes.clear();
+		estudiantes.forEach(es -> {
+			this.addEstudiante(es);
+		});
+	}
+
+	public void addEstudiante(Estudiante estudiante) {
+		this.estudiantes.add(estudiante);
+		estudiante.addCurso(this);
+	}
+	
+	public void eliminarEstudiante(Estudiante estudiante) {
+		this.estudiantes.remove(estudiante);
+		estudiante.elimnarCurso(this);
 	}
 	
 	
