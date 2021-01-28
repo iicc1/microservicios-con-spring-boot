@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cpcd.microservices.app.estudiantes.models.entity.Estudiante;
+//import com.cpcd.microservices.app.estudiantes.models.entity.Estudiante;
+import com.cpcd.microservices.commons.cursos.models.entity.Estudiante;
 import com.cpcd.microservices.app.estudiantes.services.ServicioEstudiante;
 
 @RestController

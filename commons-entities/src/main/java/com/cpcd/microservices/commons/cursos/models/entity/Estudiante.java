@@ -17,9 +17,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table (name = "estudiantes")
-public class Estudiantes {
+public class Estudiante {
 	
-	public Estudiantes() {
+	public Estudiante() {
 		this.cursos = new ArrayList<>();
 	}
 
